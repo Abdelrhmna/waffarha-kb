@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import { cookies } from 'next/headers';
 
 function getSlugs(): { slug: string; title?: string }[] {
   const dir = path.join(process.cwd(), 'content', 'kb');
@@ -28,14 +29,29 @@ function getSlugs(): { slug: string; title?: string }[] {
   return Array.from(slugs, ([slug, title]) => ({ slug, title }));
 }
 
-export default function KBIndexPage() {
+export default function KBIndexPage({ searchParams }: { searchParams?: { q?: string } }) {
   const items = getSlugs();
+  const q = (searchParams?.q || '').toLowerCase().trim();
+  const filtered = q
+    ? items.filter(({ slug, title }) =>
+        slug.toLowerCase().includes(q) || (title || '').toLowerCase().includes(q)
+      )
+    : items;
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Knowledge Base Index</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">Knowledge Base</h1>
+        <form className="mb-6">
+          <input
+            type="text"
+            name="q"
+            defaultValue={q}
+            placeholder="Search topics..."
+            className="w-full md:w-1/2 border rounded-lg px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-600"
+          />
+        </form>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map(({ slug, title }) => (
+          {filtered.map(({ slug, title }) => (
             <Link
               key={slug}
               href={`/kb/${slug}`}
@@ -47,6 +63,9 @@ export default function KBIndexPage() {
               <p className="text-sm text-gray-600">/kb/{slug}</p>
             </Link>
           ))}
+          {filtered.length === 0 && (
+            <div className="text-gray-500">No topics match your search.</div>
+          )}
         </div>
       </div>
     </div>

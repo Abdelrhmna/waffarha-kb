@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import Markdown from '../../../components/kb/Markdown';
+import LangTabs, { type TocItem } from '../../../components/kb/LangTabs';
 import { getKB, type KBSection } from '../../../lib/content';
+import { slugifyHeading } from '../../../components/kb/slug';
 
 export default function KBPage({ params }: { params: { slug: string } }) {
   // Try markdown-based content first
@@ -17,22 +19,23 @@ export default function KBPage({ params }: { params: { slug: string } }) {
     const titleEn = extractTitle(enRaw) || 'Knowledge Base';
     const titleAr = extractTitle(arRaw) || 'قاعدة المعرفة';
 
+    const enBody = stripTitle(enRaw);
+    const arBody = stripTitle(arRaw);
+
+    const tocEn = buildToc(enBody);
+    const tocAr = buildToc(arBody);
+
     return (
       <div className="min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold text-gray-900">{titleEn}</h1>
-            <div className="opacity-70 text-lg">{titleAr}</div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="bg-white rounded-lg shadow p-6">
-              <Markdown content={stripTitle(enRaw)} />
-            </div>
-            <div className="bg-white rounded-lg shadow p-6">
-              <Markdown content={stripTitle(arRaw)} rtl />
-            </div>
-          </div>
+          <LangTabs
+            titleEn={titleEn}
+            titleAr={titleAr}
+            enMarkdown={enBody}
+            arMarkdown={arBody}
+            tocEn={tocEn}
+            tocAr={tocAr}
+          />
         </div>
       </div>
     );
@@ -94,4 +97,19 @@ function extractTitle(md: string): string | undefined {
 
 function stripTitle(md: string): string {
   return md.replace(/^#\s+.+\n?/, '').trim();
+}
+
+function buildToc(md: string): TocItem[] {
+  const lines = md.split(/\n+/);
+  const toc: TocItem[] = [];
+  for (const line of lines) {
+    const m = line.match(/^(#{1,3})\s+(.+)/);
+    if (m) {
+      const level = m[1].length; // 1..3
+      const text = m[2].trim();
+      const id = slugifyHeading(text);
+      toc.push({ id, text, level });
+    }
+  }
+  return toc;
 }
