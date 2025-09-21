@@ -6,7 +6,7 @@ export default function HomePage() {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            وفرها KB
+            Waffarha KB
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             قاعدة المعرفة الشاملة لإدارة المحتوى والموارد بطريقة ذكية ومنظمة
@@ -25,6 +25,12 @@ export default function HomePage() {
             >
               تصفح المكتبة
             </Link>
+            <Link
+              href="/kb/home"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors"
+            >
+              KB Home (EN/AR)
+            </Link>
           </div>
         </div>
 
@@ -35,7 +41,7 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">مكتبة شاملة</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Comprehensive Library</h3>
             <p className="text-gray-600">
               احفظ وأدر جميع مقالاتك ومواردك في مكان واحد منظم وسهل البحث
             </p>
@@ -47,7 +53,7 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">بحث متقدم</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Advanced Search</h3>
             <p className="text-gray-600">
               ابحث في جميع محتوياتك بسرعة وسهولة باستخدام أدوات البحث المتطورة
             </p>
@@ -59,7 +65,7 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">تحليلات مفصلة</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Detailed Analytics</h3>
             <p className="text-gray-600">
               احصل على إحصائيات وتحليلات مفصلة حول استخدام المحتوى ونشاط المستخدمين
             </p>

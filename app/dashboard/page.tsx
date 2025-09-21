@@ -6,7 +6,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            مرحباً بك في وفرها KB
+            Welcome to Waffarha KB
           </h1>
           <p className="text-gray-600">
             قاعدة المعرفة الخاصة بك - إدارة المحتوى والموارد بسهولة
@@ -23,7 +23,7 @@ export default function DashboardPage() {
                 </svg>
               </div>
               <div className="mr-4">
-                <p className="text-sm text-gray-500">إجمالي المقالات</p>
+                <p className="text-sm text-gray-500">Total Articles</p>
                 <p className="text-2xl font-semibold text-gray-900">24</p>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function DashboardPage() {
                 </svg>
               </div>
               <div className="mr-4">
-                <p className="text-sm text-gray-500">المستخدمون النشطون</p>
+                <p className="text-sm text-gray-500">Active Users</p>
                 <p className="text-2xl font-semibold text-gray-900">12</p>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function DashboardPage() {
                 </svg>
               </div>
               <div className="mr-4">
-                <p className="text-sm text-gray-500">إجمالي المشاهدات</p>
+                <p className="text-sm text-gray-500">Total Views</p>
                 <p className="text-2xl font-semibold text-gray-900">1.2k</p>
               </div>
             </div>
@@ -63,19 +63,19 @@ export default function DashboardPage() {
 
         {/* قسم الإجراءات السريعة */}
         <div className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">إجراءات سريعة</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <button className="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-              إضافة مقال جديد
+              Add New Article
             </button>
             <button className="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors">
-              إدارة المستخدمين
+              Manage Users
             </button>
             <button className="bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700 transition-colors">
-              عرض التقارير
+              View Reports
             </button>
             <button className="bg-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
-              الإعدادات
+              Settings
             </button>
           </div>
         </div>

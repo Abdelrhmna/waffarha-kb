@@ -3,7 +3,7 @@ export default function LibraryPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">
-          مكتبة المعرفة
+          Knowledge Library
         </h1>
         <p className="text-gray-600 mb-8">
           تصفح جميع المقالات والموارد المتاحة في قاعدة المعرفة
@@ -16,7 +16,7 @@ export default function LibraryPage() {
             </svg>
           </div>
           <h2 className="text-xl font-semibold text-gray-900 mb-2">
-            مكتبة فارغة
+            Empty Library
           </h2>
           <p className="text-gray-600 mb-6">
             لم يتم إضافة أي مقالات بعد. ابدأ بإضافة أول مقال لك!
